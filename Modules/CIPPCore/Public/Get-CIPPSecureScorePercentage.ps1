@@ -20,6 +20,11 @@ try {
 }
 catch {
     Log-request -API "Get-CIPPSecureScorePercentage" -tenant $tenant -message "Secure Score Retrieval on $($tenant). Error: $($_.exception.message)" -sev "Error" 
+    $Result = [PSCustomObject]@{
+    Percentage     = 0
+    CurrentScore = 0
+    MaxScore = 0
+    }
 }
     return $Result
 }

@@ -192,7 +192,7 @@
       "name": "SecureScorePercent",
       "API": "CIPPValueFunction",
       "Command": "Get-CIPPSecureScorePercentage",
-      "ExtractFields": [],
+      "ExtractFields": [ "Percentage", "CurrentScore", "MaxScore" ],
       "StoreAs": "JSON",
       "FrontendFields": [
         {

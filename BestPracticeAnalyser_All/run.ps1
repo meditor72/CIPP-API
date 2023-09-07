@@ -81,7 +81,7 @@ $AddRow = foreach ($Template in $templates) {
                             $paramsField.Add($_.psobject.properties.name, $_.psobject.properties.value)
                         }
                     }
-                    $FieldInfo = & $field.Command @paramsField | Where-Object $filterscript  
+                    $FieldInfo = & $field.Command @paramsField | Where-Object $filterscript | Select-Object $field.ExtractFields  
                 }
             }
         }

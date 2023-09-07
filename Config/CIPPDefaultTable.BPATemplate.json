@@ -160,34 +160,34 @@
         }
       ]
     },
-    {
-      "name": "CurrentSecureScore",
-      "API": "Graph",
-      "URL": "https://graph.microsoft.com/beta/security/secureScores?$top=1",
-      "Parameters": {
-        "Nopagination": true
-      },
-      "ExtractFields": [ "currentScore", "maxScore", "averageComparativeScores" ],
-      "StoreAs": "JSON",
-      "FrontendFields": [
-        {
-          "name": "Current Secure Score",
-          "value": "CurrentSecureScore.currentScore"
-        },
-        {
-          "name": "Max Secure Score",
-          "value": "CurrentSecureScore.maxScore"
-        },
-        {
-          "name": "Average Comparative Score (All Tenants)",
-          "value": "CurrentSecureScore.averageComparativeScores[0].averageScore"
-        },
-        {
-          "name": "Average Comparative Score (Similiar Size Tenants)",
-          "value": "CurrentSecureScore.averageComparativeScores[1].averageScore"
-        }
-      ]
-    },
+    //{
+    //  "name": "CurrentSecureScore",
+    //  "API": "Graph",
+    //  "URL": "https://graph.microsoft.com/beta/security/secureScores?$top=1",
+    //  "Parameters": {
+    //    "Nopagination": true
+    //  },
+    //  "ExtractFields": [ "currentScore", "maxScore", "averageComparativeScores" ],
+    //  "StoreAs": "JSON",
+    //  "FrontendFields": [
+    //    {
+    //      "name": "Current Secure Score",
+    //      "value": "CurrentSecureScore.currentScore"
+    //    },
+    //    {
+    //      "name": "Max Secure Score",
+    //      "value": "CurrentSecureScore.maxScore"
+    //    },
+    //    {
+    //      "name": "Average Comparative Score (All Tenants)",
+    //      "value": "CurrentSecureScore.averageComparativeScores[0].averageScore"
+    //    },
+    //    {
+    //      "name": "Average Comparative Score (Similiar Size Tenants)",
+    //      "value": "CurrentSecureScore.averageComparativeScores[1].averageScore"
+    //    }
+    //  ]
+    //},
     {
       "name": "SecureScorePercent",
       "API": "CIPPValueFunction",

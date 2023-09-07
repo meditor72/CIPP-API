@@ -11,7 +11,7 @@ try {
     $SecureScore = New-GraphGetRequest -uri "https://graph.microsoft.com/beta/security/secureScores?$top=1" -tenantid $TenantFilter -noPagination $true
 
     $Result = [PSCustomObject]@{
-    Percentage     = [int](($SecureScore.currentScore / $SecureScore.maxScore) * 100)
+    Percentage     = [int]((([int]$SecureScore.currentScore) / ([int]$SecureScore.maxScore)) * 100)
     CurrentScore = $SecureScore.currentScore
     MaxScore = $SecureScore.maxScore
     }

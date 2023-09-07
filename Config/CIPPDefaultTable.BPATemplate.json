@@ -190,7 +190,7 @@
     //},
     {
       "name": "SecureScorePercent",
-      "API": "CIPPValueFunction",
+      "API": "CIPPFunction",
       "Command": "Get-CIPPSecureScorePercentage",
       "ExtractFields": [ "Percentage", "CurrentScore", "MaxScore" ],
       "StoreAs": "JSON",

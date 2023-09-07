@@ -8,7 +8,7 @@ function Get-CIPPSecureScorePercentage {
 
    # Get Secure Score
 try {
-    $SecureScore = New-GraphGetRequest -uri "https://graph.microsoft.com/beta/security/secureScores?`$top=1" -tenantid $TenantFilter -noPagination $true
+    $SecureScore = New-GraphGetRequest -uri "https://graph.microsoft.com/beta/security/secureScores?$top=1" -tenantid $TenantFilter -noPagination $true
 
     $Result = [PSCustomObject]@{
     Percentage     = [int](($SecureScore.currentScore / $SecureScore.maxScore) * 100)

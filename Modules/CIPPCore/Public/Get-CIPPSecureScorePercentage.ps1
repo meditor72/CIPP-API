@@ -16,10 +16,13 @@ try {
     MaxScore = $SecureScore.maxScore
     }
 
-    Write-LogMessage -API "Get-CIPPSecureScorePercentage" -tenant $tenant -message "Secure Score on $($tenant) is $($Result)" -sev "Error"
+    Write-Host "Doing: Get-CIPPSecureScorePercentage with percentage $($Result.Percentage)"
+
 }
 catch {
-    Write-LogMessage -API "Get-CIPPSecureScorePercentage" -tenant $tenant -message "Secure Score Retrieval on $($tenant). Error: $($_.exception.message)" -sev "Error" 
+    
+    Write-Host "Error: CIPPValueFunction - $($_.exception.message)"
+
     $Result = [PSCustomObject]@{
     Percentage     = 0
     CurrentScore = 0

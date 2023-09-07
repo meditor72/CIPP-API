@@ -196,7 +196,7 @@
       "StoreAs": "JSON",
       "FrontendFields": [
         {
-          "name": "Secure Score Percentage",
+          "name": "Secure Score %",
           "value": "SecureScorePercent.Percentage"
         }
       ]

@@ -81,6 +81,9 @@ $AddRow = foreach ($Template in $templates) {
                             $paramsField.Add($_.psobject.properties.name, $_.psobject.properties.value)
                         }
                     }
+                    
+                    Write-Host "Doing: CIPPValueFunction with value $($field.Command)"
+
                     $FieldInfo = & $field.Command @paramsField | Select-Object $field.ExtractFields  
                 }
             }

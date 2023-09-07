@@ -197,7 +197,7 @@
       "FrontendFields": [
         {
           "name": "Secure Score Percentage",
-          "value": "Percentage"
+          "value": "SecureScorePercent.Percentage"
         }
       ]
     }

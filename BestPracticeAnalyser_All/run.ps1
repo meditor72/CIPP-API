@@ -68,6 +68,21 @@ $AddRow = foreach ($Template in $templates) {
                     }
                     $FieldInfo = & $field.Command @paramsField | Where-Object $filterscript  | Select-Object $field.ExtractFields 
                 }
+                "CIPPValueFunction" {
+                    if ($field.Command -notlike "get-CIPP*") {
+                        Write-LogMessage  -API "BPA" -tenant $tenant -message "The BPA only supports get-CIPP commands. A set or update command was used, or a command that is not allowed." -sev Error
+                        break
+                    }
+                    $paramsField = @{
+                        TenantFilter = $TenantName.defaultDomainName
+                    }
+                    if ($field.parameters) {
+                        $field.Parameters | ForEach-Object {
+                            $paramsField.Add($_.psobject.properties.name, $_.psobject.properties.value)
+                        }
+                    }
+                    $FieldInfo = & $field.Command @paramsField | Where-Object $filterscript  
+                }
             }
         }
         catch {

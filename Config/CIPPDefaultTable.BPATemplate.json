@@ -50,7 +50,7 @@
       "name": "MFANudgeState",
       "API": "Graph",
       "URL": "https://graph.microsoft.com/beta/policies/authenticationMethodsPolicy",
-      "ExtractFields": ["registrationEnforcement"],
+      "ExtractFields": [ "registrationEnforcement" ],
       "StoreAs": "bool",
       "where": "$_.registrationEnforcement.authenticationMethodsRegistrationCampaign.state -eq 'Enabled'",
       "FrontendFields": [
@@ -109,10 +109,10 @@
       "API": "Exchange",
       "Command": "Get-Mailbox",
       "Parameters": {
-        "RecipientTypeDetails": ["SharedMailbox", "UserMailbox"]
+        "RecipientTypeDetails": [ "SharedMailbox", "UserMailbox" ]
       },
       "where": "$_.MessageCopyForSentAsEnabled -eq $false",
-      "ExtractFields": ["userprincipalname", "messageCopyForSentAsEnabled"],
+      "ExtractFields": [ "userprincipalname", "messageCopyForSentAsEnabled" ],
       "StoreAs": "JSON",
       "FrontendFields": [
         {
@@ -130,7 +130,7 @@
         "RecipientTypeDetails": "SharedMailbox"
       },
       "where": "$_.accountDisabled -eq $false",
-      "ExtractFields": ["userprincipalname", "accountDisabled"],
+      "ExtractFields": [ "userprincipalname", "accountDisabled" ],
       "StoreAs": "JSON",
       "FrontendFields": [
         {
@@ -167,7 +167,7 @@
       "Parameters": {
         "Nopagination": true
       },
-      "ExtractFields": ["currentScore", "maxScore", "averageComparativeScores"],
+      "ExtractFields": [ "currentScore", "maxScore", "averageComparativeScores" ],
       "StoreAs": "JSON",
       "FrontendFields": [
         {
@@ -185,6 +185,20 @@
         {
           "name": "Average Comparative Score (Similiar Size Tenants)",
           "value": "CurrentSecureScore.averageComparativeScores[1].averageScore"
+        }
+      ]
+    },
+    {
+      "name": "SecureScorePercent",
+      "API": "CIPPValueFunction",
+      "Command": "Get-CIPPSecureScorePercentage",
+      "ExtractFields": [],
+      "StoreAs": "JSON",
+      "FrontendFields": [
+        {
+          "name": "Secure Score Percentage",
+          "formatter": "number",
+          "value": "Percentage"
         }
       ]
     }

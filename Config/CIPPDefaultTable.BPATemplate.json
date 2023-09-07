@@ -197,7 +197,6 @@
       "FrontendFields": [
         {
           "name": "Secure Score Percentage",
-          "formatter": "number",
           "value": "Percentage"
         }
       ]

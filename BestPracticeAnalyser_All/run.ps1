@@ -85,6 +85,10 @@ $AddRow = foreach ($Template in $templates) {
                     Write-Host "Doing: CIPPValueFunction with value $($field.Command)"
 
                     $FieldInfo = & $field.Command @paramsField | Select-Object $field.ExtractFields  
+
+                    $FieldData=ConvertTo-JSON $FieldInfo
+
+                    Write-Host "CIPPValueFunction FieldInfo: $($FieldData)"
                 }
             }
         }

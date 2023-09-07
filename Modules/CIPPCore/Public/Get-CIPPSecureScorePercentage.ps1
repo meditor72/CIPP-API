@@ -16,7 +16,7 @@ try {
     MaxScore = $SecureScore.maxScore
     }
 
-    Write-LogMessage -API "Get-CIPPSecureScorePercentage" -tenant $tenant -message "Secure Score on $($tenant) is $($Result)" -sev "Debug"
+    Write-LogMessage -API "Get-CIPPSecureScorePercentage" -tenant $tenant -message "Secure Score on $($tenant) is $($Result)" -sev "Error"
 }
 catch {
     Write-LogMessage -API "Get-CIPPSecureScorePercentage" -tenant $tenant -message "Secure Score Retrieval on $($tenant). Error: $($_.exception.message)" -sev "Error" 
